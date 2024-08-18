@@ -1,9 +1,15 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.engine import Engine 
 from sqlalchemy import event
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, UserMixin  
 
 db = SQLAlchemy()
+login_manager = LoginManager()
 
+@login_manager.user_loader
+def get_user(id):
+    return usuarios.query.filter_by(id=id).first()
 
 # Suporte a chave estrangeira no SQLite
 @event.listens_for(Engine, "connect")
@@ -29,13 +35,23 @@ class Ativos(db.Model):
     # Relacionamento com a tabela Setores
     setor = db.relationship('Setores', backref=db.backref('ativos', lazy=True))
 
-class usuarios(db.Model):
+
+
+class usuarios(db.Model,UserMixin):
     __tablename__ = 'usuarios'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     senha = db.Column(db.String(255), nullable=False)
 
+    def __init__(self,nome,email,senha):
+        self.nome = nome
+        self.email = email
+        self.senha = generate_password_hash(senha)
+
+    def verify_password(self, senha):
+        return check_password_hash(self.senha, senha)
+    
 class Precos(db.Model):
     __tablename__ = 'precos'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

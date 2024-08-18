@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>menu Base</title>
+    <title>Bem-vindo(a) B&S Investimentos</title>
 
      <!-- Importação do CDN da biblioteca de icones -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -20,7 +20,7 @@
     <nav id="sidebar">
         <div id="sidebar_content">
             <div class="Logo">
-                <img src="{{ url_for('static', filename='logomarca.png') }}" alt="Logo marca">
+                <img src="{{ url_for('static', filename='img/logomarca.png') }}" alt="Logo marca">
             </div>
     
             <ul id="side_items">
@@ -85,6 +85,12 @@
         </div>
     </nav>
 
+    <main id="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+
     <script>
                 // Section resposavél pelo funcionamento do Menu Lateral 
         document.getElementById('open_btn').addEventListener('click', function () {
@@ -101,17 +107,6 @@
         });
 
 
-        // Funcionalidade da Lista de Empresas
-        var btn_Enviar = document.querySelector("#addItemButton");
-
-        btn_Enviar.addEventListener('click', function(event){
-            event.preventDefault();
-            var form = document.querySelector("#form");
-            console.log(form.ticker.value);
-            console.log(form.setor.value);
-            console.log(form.nome.value);
-            console.log(form.industria.value);
-        });
     </script>
 </body>
 </html>

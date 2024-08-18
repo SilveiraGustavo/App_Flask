@@ -30,17 +30,17 @@
                 <h2>Investimentos</h2>
             </header>
 
-            <form action="" id="Form-Login">
+            <form action="" id="Form-Login" method="POST">
 
                 <label for="email">E-mail</label>
                 <div class="input-container">
-                    <input type="email" id="email" placeholder="@gmail.com">
+                    <input name="email" type="email" id="email" placeholder="@gmail.com">
                     <i class="fa-regular fa-envelope"></i>
                 </div>
         
                 <label for="password">Senha</label>
                 <div class="input-container">
-                    <input type="password" id="password" placeholder="Digite sua senha">
+                    <input name="password" type="password" id="password" placeholder="Digite sua senha">
                     <i id="togglePassword" class="fas fa-eye"></i>
                 </div>
 
@@ -52,7 +52,7 @@
                 <button type="submit"><span>Login</span></button>    
                 
                 <div class="register-login">
-                    <p>Não possui conta? <a href="#">Registra-se</a></p>
+                    <p>Não possui conta? <a href="{{ url_for('inicial.pagina_inicial')}}">Registra-se</a></p>
                     <p class="Login-acconts">Logar com</p>
                 </div>
     

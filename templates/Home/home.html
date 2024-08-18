@@ -1,5 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
-        <h1>testes</h1>
-       <h2>Em construção...</h2>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Home.css') }}">
+        <main id="main">
+                <header>
+                <h3>Olá,<span> Gustavo</span></h3>
+                </header>
+
+                <div class="container">
+                <h3>Cadastrar ativos</h3>
+
+                <form id="form">
+                        <div class="form-group">
+                        <label for="ticker">Ticker</label>
+                        <input type="text" id="itemInput" placeholder="ex: PETR4" name="ticker">
+                        </div>
+                        <div class="form-group">
+                        <label for="setor">Setor</label>
+                        <input type="text" id="itemInput" placeholder="ex: Primário" name="setor">
+                        </div>
+                        <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="itemInput" placeholder="ex: Petrobras" name="nome">
+                        </div>
+                        <div class="form-group">
+                        <label for="industria">Industria</label>
+                        <input type="text" id="itemInput" placeholder="ex: Petróleo e Gás" name="industria">
+                        </div>
+                </form>
+                
+                <div class="btn_container">
+                        <button class="btn-cadastrar-ativos" id="addItemButton">
+                        <a href="">Cadastrar
+                        </a>
+                        </button>
+                </div>
+                
+                </div>
+
+
+                <div class="container2">
+                <h3>Ativos cadastrados</h3> 
+                <div class="ativos_content">
+                        <ul id="itemList">
+                        <li>
+                                <div class="Ativos_cards">
+                                <!-- <img src="../src/imgs/Petrobras.png" alt="Petrobrás" style="width: 35px; object-fit: cover;"> -->
+                                </div>
+                        </li>
+                        </ul>
+                </div>
+                </div>
+        </main>
+        
 {% endblock %}
