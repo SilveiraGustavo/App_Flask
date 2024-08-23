@@ -34,4 +34,7 @@ Após concluir a criação do ambiente virtual, o próximo passo é ativar o amb
 ```
 ## 6ª Etapa 
 Após completar as etapas anteriores, estamos quase prontos para executar a aplicação. O próximo passo é instalar as bibliotecas necessárias que foram utilizadas no projeto.
+
+```
+pip install flask, flask_login, flask_sqlalchemy
 ```
