@@ -15,9 +15,17 @@
                         <input type="text" id="itemInput" placeholder="ex: PETR4" name="ticker">
                         </div>
                         <div class="form-group">
-                        <label for="setor">Setor</label>
-                        <input type="text" id="itemInput" placeholder="ex: Primário" name="setor">
-                        </div>
+                                <label for="setor">Setor</label>
+                                <div class="dropdown">
+                                    <button type="button" id="setorButton">Escolha o setor <i class="bi bi-arrow-down"></i> </button>
+                                    <ul id="setorList" class="dropdown-content">
+                                        <li><a href="#" data-value="Primário">Primário</a></li>
+                                        <li><a href="#" data-value="Secundário">Secundário</a></li>
+                                        <li><a href="#" data-value="Tertário">Tertário</a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
                         <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" id="itemInput" placeholder="ex: Petrobras" name="nome">
@@ -51,5 +59,33 @@
                 </div>
                 </div>
         </main>
+
         
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const setorButton = document.getElementById('setorButton');
+        const setorList = document.getElementById('setorList');
+
+        setorButton.addEventListener('click', () => {
+                setorList.classList.toggle('show');
+        });
+
+        setorList.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                setorButton.textContent = e.target.textContent;
+                setorList.classList.remove('show');
+                }
+        });
+
+        // Fechar a lista se clicar fora dela
+        window.addEventListener('click', (e) => {
+                if (!e.target.matches('#setorButton')) {
+                if (setorList.classList.contains('show')) {
+                        setorList.classList.remove('show');
+                }
+                }
+        });
+        });
+
+        </script>
 {% endblock %}

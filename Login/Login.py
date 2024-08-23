@@ -19,10 +19,12 @@ def user_login():
         user = usuarios.query.filter_by(email=email).first()
         
         if not user or not user.verify_password(senha):
-            return redirect('/Home')
+            return redirect(url_for('Home.pagina_home'))
+        
         login_user(user)
         return redirect('/home')
     return render_template('login.html')
+
 
 @login_blueprint.route('/logout')
 def logout_user():
