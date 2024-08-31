@@ -20,7 +20,7 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
 
 
 #  Object-Relational Mapping
-class Setores(db.Model):
+class setores(db.Model):
     __tablename__ = 'setores'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
@@ -33,7 +33,7 @@ class Ativos(db.Model):
     setor_id = db.Column(db.Integer, db.ForeignKey('setores.id'), nullable=False)
 
     # Relacionamento com a tabela Setores
-    setor = db.relationship('Setores', backref=db.backref('ativos', lazy=True))
+    setor = db.relationship('setores', backref=db.backref('ativos', lazy=True))
 
 
 

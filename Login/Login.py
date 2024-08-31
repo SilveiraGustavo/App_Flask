@@ -15,16 +15,17 @@ def user_login():
         email = request.form['email']
         senha = request.form['password']
         
-        # Buscar o usuário pelo email
+        # Buscar o usuÃ¡rio pelo email
         user = usuarios.query.filter_by(email=email).first()
         
-        if not user or not user.verify_password(senha):
-            return redirect(url_for('Home.pagina_home'))
+        if not user:
+            return redirect("/")
         
-        login_user(user)
-        return redirect('/home')
+        if user.verify_password(senha):
+            login_user(user)
+            return redirect('/Home')
+        
     return render_template('login.html')
-
 
 @login_blueprint.route('/logout')
 def logout_user():
