@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from database import db, usuarios
-from flask_login import login_user
+from flask_login import login_user,logout_user
 
 login_blueprint = Blueprint('login', __name__, template_folder='templates')
 
@@ -15,7 +15,7 @@ def user_login():
         email = request.form['email']
         senha = request.form['password']
         
-        # Buscar o usuÃ¡rio pelo email
+        # Buscar o usuário  pelo email
         user = usuarios.query.filter_by(email=email).first()
         
         if not user:
@@ -28,6 +28,6 @@ def user_login():
     return render_template('login/login.html')
 
 @login_blueprint.route('/logout')
-def logout_user():
+def logout():
     logout_user()
-    return redirect(url_for('/login'))
+    return redirect('/login')

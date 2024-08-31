@@ -76,10 +76,10 @@
         </div>
 
         <div id="logout">
-            <button id="logout_btn" href="">
+            <button id="logout_btn" >
                 <i class="bi bi-arrow-left"></i>
                 <span class="item-description">
-                    Sair
+                    <a href="{{ url_for('login.logout') }}">Sair</a>
                 </span>
             </button>
         </div>

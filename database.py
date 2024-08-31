@@ -25,7 +25,7 @@ class setores(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
 
-class Ativos(db.Model):
+class ativos(db.Model):
     __tablename__ = 'ativos'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
@@ -60,7 +60,7 @@ class Precos(db.Model):
     preco = db.Column(db.Numeric(10, 2), nullable=False)
 
     # Relacionamento com a tabela Ativos
-    ativo = db.relationship('Ativos', backref=db.backref('precos', lazy=True))
+    ativo = db.relationship('ativos', backref=db.backref('precos', lazy=True))
 
 class Movimentacoes(db.Model):
     __tablename__ = 'movimentacoes'
@@ -75,5 +75,5 @@ class Movimentacoes(db.Model):
 
     # Relacionamentos
 usuario = db.relationship('Usuarios', backref=db.backref('movimentacoes', lazy=True))
-ativo = db.relationship('Ativos', backref=db.backref('movimentacoes', lazy=True))
+ativo = db.relationship('ativos', backref=db.backref('movimentacoes', lazy=True))
 preco = db.relationship('Precos', backref=db.backref('movimentacoes', lazy=True))
