@@ -25,7 +25,7 @@ def user_login():
             login_user(user)
             return redirect('/Home')
         
-    return render_template('login.html')
+    return render_template('login/login.html')
 
 @login_blueprint.route('/logout')
 def logout_user():
