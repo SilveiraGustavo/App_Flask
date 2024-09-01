@@ -1,47 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Home.css') }}">
-        <main id="main">
-                <header>
-                <h3>Olá,<span> {{current_user.nome if current_user.is_authenticated}}</span></h3>
-                </header>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Home.css') }}">
+    <main id="main">
+        <header>
+            <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}</span></h3>
+        </header>
 
-                <div class="container">
-                        <h3>Cadastrar ativos</h3>
-                        <form id="form" action="{{ url_for('Home.insert_ativo') }}" method="POST">
-                            <div class="form-group">
-                                <label for="ticker">Sigla</label>
-                                <input type="text" id="itemInput" placeholder="ex: PETR4" name="sigla" required>
-                            </div>    
-                            <div class="form-group">
-                                <label for="setor">Setor</label>
-                                <input type="text" id="itemInput" placeholder="ex: TECNOLOGIA" name="Setor" required>
-                            </div>   
-                            <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" id="itemInput" placeholder="ex: Petrobras" name="nome" required>
-                            </div>
-                            <div class="btn_container">
-                                <button class="btn-cadastrar-ativos" id="addItemButton" type="submit">Cadastrar</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                <div class="container2">
-                <h3>Ativos cadastrados</h3> 
-                <div class="ativos_content">
-                        <ul id="itemList">
-                                <li>
-                                        <div class="Ativos_cards">
-                                        <!-- <img src="../src/imgs/Petrobras.png" alt="Petrobrás" style="width: 35px; object-fit: cover;"> -->
-                                        </div>
-                                </li>
-                        </ul>
+        <div class="container">
+            <h3>Cadastrar ativos</h3>
+            <form id="form" action="{{ url_for('Home.insert_ativo') }}" method="POST">
+                <div class="form-group">
+                    <label for="ticker">Sigla</label>
+                    <input type="text" id="itemInput" placeholder="ex: PETR4" name="sigla" required>
+                </div>    
+                <div class="form-group">
+                    <label for="setor">Setor</label>
+                    <input type="text" id="itemInput" placeholder="ex: TECNOLOGIA" name="Setor" required>
+                </div>   
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="itemInput" placeholder="ex: Petrobras" name="nome" required>
                 </div>
+                <div class="btn_container">
+                    <button class="btn-cadastrar-ativos" id="addItemButton" type="submit">Cadastrar</button>
                 </div>
-        </main>
-
-        <script>
-            
-        </script>
+            </form>
+        </div>
+        
+        <div class="container2">
+            <h3>Ativos Cadastrados</h3>
+            <div class="ativos_content">
+                <ul id="itemList">
+                    {% for ativo in ativos %}
+                    <li>
+                        {{ ativo.nome }} - {{ ativo.sigla }} - {{ ativo.setor.nome }}
+                    </li>
+                        {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
 {% endblock %}

@@ -5,7 +5,8 @@ Home_blueprint = Blueprint('Home', __name__, template_folder='templates')
 
 @Home_blueprint.route('/Home')
 def pagina_home():
-    return render_template('Home/home.html')
+    ativos = Ativos.query.order_by(Ativos.nome)
+    return render_template('Home/home.html', ativos=ativos)
 
 @Home_blueprint.route('/Home', methods=['GET', 'POST'])
 def insert_ativo():
@@ -32,3 +33,5 @@ def insert_ativo():
     
     # Método GET: Renderiza o template da página Home
     return render_template('Home/home.html')
+
+

@@ -25,7 +25,7 @@ class Setores(db.Model):
     nome = db.Column(db.String(255), nullable=False)
 
     # Relacionamento com a tabela Ativos
-    ativos = db.relationship('Ativos', backref='setor_rel', lazy=True)
+    ativos = db.relationship('Ativos', back_populates='setor', lazy=True)
 
 class Ativos(db.Model):
     __tablename__ = 'ativos'
@@ -35,9 +35,7 @@ class Ativos(db.Model):
     setor_id = db.Column(db.Integer, db.ForeignKey('setores.id_setor'), nullable=False)
 
     # Relacionamento com a tabela Setores
-    setor = db.relationship('Setores', backref=db.backref('ativos_rel', lazy=True))
-
-
+    setor = db.relationship('Setores', back_populates='ativos')
 class usuarios(db.Model,UserMixin):
     __tablename__ = 'usuarios'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
