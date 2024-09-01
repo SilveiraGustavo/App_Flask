@@ -19,22 +19,23 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
     cursor.close()
 
 
-#  Object-Relational Mapping
-class setores(db.Model):
+class Setores(db.Model):
     __tablename__ = 'setores'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_setor = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
 
-class ativos(db.Model):
+    # Relacionamento com a tabela Ativos
+    ativos = db.relationship('Ativos', backref='setor_rel', lazy=True)
+
+class Ativos(db.Model):
     __tablename__ = 'ativos'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(255), nullable=False)
     sigla = db.Column(db.String(10), nullable=False)
-    setor_id = db.Column(db.Integer, db.ForeignKey('setores.id'), nullable=False)
+    setor_id = db.Column(db.Integer, db.ForeignKey('setores.id_setor'), nullable=False)
 
     # Relacionamento com a tabela Setores
-    setor = db.relationship('setores', backref=db.backref('ativos', lazy=True))
-
+    setor = db.relationship('Setores', backref=db.backref('ativos_rel', lazy=True))
 
 
 class usuarios(db.Model,UserMixin):
@@ -60,7 +61,7 @@ class Precos(db.Model):
     preco = db.Column(db.Numeric(10, 2), nullable=False)
 
     # Relacionamento com a tabela Ativos
-    ativo = db.relationship('ativos', backref=db.backref('precos', lazy=True))
+    ativo = db.relationship('Ativos', backref=db.backref('precos', lazy=True))
 
 class Movimentacoes(db.Model):
     __tablename__ = 'movimentacoes'
@@ -75,5 +76,5 @@ class Movimentacoes(db.Model):
 
     # Relacionamentos
 usuario = db.relationship('Usuarios', backref=db.backref('movimentacoes', lazy=True))
-ativo = db.relationship('ativos', backref=db.backref('movimentacoes', lazy=True))
+ativo = db.relationship('Ativos', backref=db.backref('movimentacoes', lazy=True))
 preco = db.relationship('Precos', backref=db.backref('movimentacoes', lazy=True))
