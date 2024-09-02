@@ -163,7 +163,7 @@ form label {
     border-radius: 12px;
     border: none;
 }
-.Content-Form-Create button a {
+.Content-Form-Create button span {
     color: #ededed;
     font-size: 1.4rem;
     font: bold;

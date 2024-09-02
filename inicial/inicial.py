@@ -22,5 +22,5 @@ def insert_user():
     db.session.add(user)
     db.session.commit()
 
-    return redirect('/inicial') 
+    return redirect('/login') 
 
