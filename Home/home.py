@@ -34,4 +34,10 @@ def insert_ativo():
     # Método GET: Renderiza o template da página Home
     return render_template('Home/home.html')
 
+@Home_blueprint.route('/Home/delete/<int:id>')
+def delete(id):
+    ativo = Ativos.query.get(id)
 
+    db.session.delete(ativo)
+    db.session.commit()
+    return redirect('/Home')

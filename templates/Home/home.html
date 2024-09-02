@@ -34,10 +34,23 @@
                     {% for ativo in ativos %}
                     <li>
                         {{ ativo.nome }} - {{ ativo.sigla }} - {{ ativo.setor.nome }}
+                        <a href="#" onclick="excluir('{{ativo.id}}')">Remover</a>
+
                     </li>
                         {% endfor %}
                 </ul>
             </div>
         </div>
     </main>
+
+
+
+    <script>
+        function excluir(id){
+        var resultado = confirm("Confirma exclusão?");
+            if (resultado == true) {
+                window.location = window.location + "/delete/" + id;
+            }
+        }
+        </script>
 {% endblock %}
