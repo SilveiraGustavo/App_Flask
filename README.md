@@ -38,3 +38,10 @@ Após completar as etapas anteriores, estamos quase prontos para executar a apli
 ```
 pip install flask, flask_login, flask_sqlalchemy
 ```
+## Como utilizar o sistema
+
+Para utilizar o sistema, você poderá criar uma conta na tela principal. Preencha os campos "Username", "Email" e "Senha". Após preencher os campos, clique no botão "Registrar". Você será redirecionado para a página de login, onde poderá iniciar uma sessão com o usuário que acabou de criar.
+
+Após realizar o login com a conta criada, você será redirecionado para uma página chamada "Home", onde poderá cadastrar seus ativos e excluir aqueles que desejar remover. 
+
+Nessa mesma página voce poderá também navegar em um menu lateral onde tem opções de "Cadastrar Ativos" e algumas outras, mas não foi possível implementar as outras funcionalidades. O usuário pode encerrar sua seção através de um botão disponível no menu lateral na opção "Sair". 
