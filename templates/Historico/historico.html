@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Styles/historico.css') }}">
+<main>
+
+    <header>
+        <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}</span></h3>
+    </header>
+
+    <!-- Nova seção para o texto e o botão dropdown -->
+    <div class="header-historico">
+        <h2>Histórico de valor</h2>
+        <div class="dropdown">
+            <button class="dropdown-button">Selecione um ativo</button>
+            <div class="dropdown-content">
+                <a href="#">Ativo 1</a>
+                <a href="#">Ativo 2</a>
+                <a href="#">Ativo 3</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Container-historico">
+        <div class="container-logo">
+            <img src="{{ url_for('static', filename='img/Petrobras.png') }}" alt="Banco Central" style="width: 200px">
+
+            <span>Nome: Petroleo Brasileiro S.A</span>
+            <span>Nascionalidade: Brasil</span>
+            <span>CEO: Jean Paul Prates</span>
+        </div>
+
+        <div class="container-table">
+            <table id="" class="display" style="width: 800px;">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Abertura</th>
+                        <th>Fechamento</th>
+                        <th>Variação</th>
+                        <th>Mínimo</th>
+                        <th>Máximo</th>
+                        <th>Volume</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2024</td>
+                        <td>39,72</td>
+                        <td>38,94</td>
+                        <td>-0,92</td>
+                        <td>38,70</td>
+                        <td>40,05</td>
+                        <td>1.58B</td>
+                    </tr>
+                    
+                    
+                </thead>
+                <tbody>
+                    <!-- Dados da tabela -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+        
+</main>
+
+
+
+
+{% endblock %}

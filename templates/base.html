@@ -25,7 +25,7 @@
     
             <ul id="side_items">
                 <li class="side-item active">
-                    <a href="#">
+                    <a href="{{ url_for('Home.pagina_home') }}">
                         <i class="bi bi-graph-up"></i>
                         <span class="item-description">
                             Cadastro de ativos
@@ -34,7 +34,7 @@
                 </li>
     
                 <li class="side-item">
-                    <a href="#">
+                    <a href="{{ url_for('Historico.pagina_historico') }}">
                         <i class="bi bi-clock-history"></i>
                         <span class="item-description">
                             Histórico de valor
