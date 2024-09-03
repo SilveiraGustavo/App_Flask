@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Styles/relatorios.css') }}">
+
+<main >
+    <header>
+        <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}. Consulte seus Relatórios diversos!</span></h3>
+    </header>
+    
+    <section class="portfolio">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ativos</th>
+                    <th>Preço</th>
+                    <th>Dia</th>
+                    <th>Quantidade</th>
+                    <th>Valor Ordem</th>
+                    <th>Valorização</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="{{ url_for('static', filename='img/Petrobras.png') }}" alt="Petrobras" > PETR4F - Petróleo Brasileiro S.A</td>
+                    <td>3.800,94</td>
+                    <td class="negative">-0,92%</td>
+                    <td>Qtd. 100</td>
+                    <td>Valor Compra: 1.900,32 BRL</td>
+                    <td class="positive">Valorização: +100%</td>
+                </tr>
+                <tr>
+                    <td><img src="{{ url_for('static', filename='img/Ambev.png') }}" alt="Ambev" > ABEV3F - Ambev S/A ON</td>
+                    <td>150,16</td>
+                    <td class="positive">+1,20%</td>
+                    <td>Qtd. 10</td>
+                    <td>Valor Compra: 200,00 BRL</td>
+                    <td class="negative">Valorização: -24,96%</td>
+                </tr>
+                <tr>
+                    <td><img src="{{ url_for('static', filename='img/itau.png') }}" alt="Itaú" > ITUB4 - Itaú Unibanco</td>
+                    <td>3.246,00</td>
+                    <td class="negative">-1,04%</td>
+                    <td>Qtd. 100</td>
+                    <td>Valor Compra: 3.000,00 BRL</td>
+                    <td class="positive">Valorização: +09,18%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="specialists">
+        <h3>Chame um de nossos especialistas, para fazer sua carteira ideal:</h3>
+        <div class="specialists-list">
+            <div class="specialist">
+                <img src="{{ url_for('static', filename='img/Perfil.jpg') }}" alt="Bruno Oliveira">
+                <p><strong>Bruno Augusto</strong><br>
+                Trader há 22 anos, faturou 1 milhão na crise imobiliária.<br>
+                Contato: brunotrader@bsinvest.com</p>
+            </div>
+            <div class="specialist">
+                <img src="{{ url_for('static', filename='img/Perfil.jpg') }}" alt="Sadi Garcia" >
+                <p><strong>Sadi Garcia</strong><br>
+                Trader há 20 anos, faturou 500 mil no boom das commodities.<br>
+                Contato: saditrader@bsinvest.com</p>
+            </div>
+            <div class="specialist">
+                <img src="{{ url_for('static', filename='img/Perfil.jpg') }}" alt="Gustavo Silveira" >
+                <p><strong>Gustavo Silveira</strong><br>
+                Trader há 21 anos, faturou 700 mil no circuit break do covid.<br>
+                Contato: gutosilveiratrader@bsinvest.com</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

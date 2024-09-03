@@ -30,7 +30,7 @@ python -m venv venv
 ## 5ª Etapa
 Após concluir a criação do ambiente virtual, o próximo passo é ativar o ambiente virtual em sua máquina. Com o seguinte comando:
 ```
-.\venv\Scripts\active
+.\venv\Scripts\activate
 ```
 ## 6ª Etapa 
 Após completar as etapas anteriores, estamos quase prontos para executar a aplicação. O próximo passo é instalar as bibliotecas necessárias que foram utilizadas no projeto.

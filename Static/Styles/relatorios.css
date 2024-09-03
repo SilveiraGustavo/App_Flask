@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+
+main {
+    padding: 5px;
+    padding-right: 30px;
+    padding-top: 50px;
+    position: fixed;
+    z-index: 1;
+    padding-left: calc(80px + 10px);
+    transition: margin-left 0.5s ease;
+}
+header h3 {
+    color: #000;
+    font-size: 24px;
+}
+.portfolio table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.portfolio th, .portfolio td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.portfolio th {
+    background-color: #f0f0f0;
+}
+
+.portfolio img {
+    width: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.negative {
+    color: #f44336;
+}
+
+.positive {
+    color: #4caf50;
+}
+
+.specialists {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.specialists-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.specialist {
+    text-align: center;
+    width: 30%;
+}
+
+.specialist img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
