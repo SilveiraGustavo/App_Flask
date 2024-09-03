@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Home.css') }}">
     <main id="main">
         <header>
-            <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}</span></h3>
+            <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}. Cadastre seus ativos!</span></h3>
         </header>
 
         <div class="container">
@@ -25,6 +25,7 @@
                     <button class="btn-cadastrar-ativos" id="addItemButton" type="submit">Cadastrar</button>
                 </div>
             </form>
+            
         </div>
         
         <div class="container2">

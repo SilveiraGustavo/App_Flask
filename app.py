@@ -5,6 +5,7 @@ from Home.home import Home_blueprint
 from Login.Login import login_blueprint
 from database import db, login_manager
 from Historico.historico import Historico_blueprint
+from Compra.compra import Compra_blueprint
 
 basedir = path.abspath(path.dirname(__file__))
 
@@ -23,3 +24,4 @@ app.register_blueprint(inicial_blueprint)
 app.register_blueprint(Home_blueprint)
 app.register_blueprint(login_blueprint)
 app.register_blueprint(Historico_blueprint)
+app.register_blueprint(Compra_blueprint)

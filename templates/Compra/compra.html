@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Styles/compra.css') }}">
+
+<main>
+    <header>
+        <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}. Faça suas compras e vendas</span></h3>
+    </header>
+    <div class="trade-area">
+        <div class="trade-header">
+            <img src="{{ url_for('static', filename='img/Petrobras.png') }}" alt="Petrobras"">
+
+            <div>
+                <h3>Petróleo Brasileiro S.A</h3>
+                <span class="price">38,94</span>
+                <span class="price-change">-0,92%</span>
+            </div>
+        </div>
+        <div class="trade-section">
+            <div class="trade-box">
+                <h4>COMPRA</h4>
+                <p>ID: 209478</p>
+                <label>QUANTIDADE</label>
+                <input type="number" value="10">
+                <p>Min: 38,73 | Max: 39,95 | 12/04/2024</p>
+                <p>Valor unidade: 38,94 BRL</p>
+                <p>Valor Total: 380,94 BRL</p>
+                <button>COMPRAR</button>
+            </div>
+            <div class="trade-box">
+                <h4>VENDA</h4>
+                <p>ID: 209488 | ID DA COMPRA: 209478</p>
+                <label>QUANTIDADE</label>
+                <input type="number" value="10">
+                <p>Min: 38,73 | Max: 39,95 | 12/04/2024</p>
+                <label>Insira o valor da unidade:</label>
+                <input type="number" value="38,94"> BRL
+                <p>Valor Total: 380,94 BRL</p>
+                <button>VENDER</button>
+            </div>
+        </div>
+        <div class="search-bar">
+            <label for="search">ESCOLHA O ATIVO QUE DESEJA NEGOCIAR:</label>
+            <input type="text" id="search" placeholder="Pesquisar...">
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}

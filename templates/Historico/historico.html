@@ -4,7 +4,7 @@
 <main>
 
     <header>
-        <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}</span></h3>
+        <h3>Olá, <span>{{ current_user.nome if current_user.is_authenticated }}. Consulte seu Histórico!</span></h3>
     </header>
 
     <!-- Nova seção para o texto e o botão dropdown -->
@@ -22,7 +22,7 @@
 
     <div class="Container-historico">
         <div class="container-logo">
-            <img src="{{ url_for('static', filename='img/Petrobras.png') }}" alt="Banco Central" style="width: 200px">
+            <img src="{{ url_for('static', filename='img/Petrobras.png') }}" alt="Petrobras" style="width: 200px">
 
             <span>Nome: Petroleo Brasileiro S.A</span>
             <span>Nascionalidade: Brasil</span>
